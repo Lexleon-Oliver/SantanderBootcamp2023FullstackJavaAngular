@@ -1,0 +1,245 @@
+//ESTRUTURA BÁSICA
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta>
+            <title></title>
+        </head>
+        <body>
+        </body>
+    </html>
+
+Seção <meta> normalmente é usada para fornecer metadados sobre o documento, como conjunto de caracteres e descrição
+
+<meta charset="UTF-8">
+<meta name="description" content="Descrição da página">
+
+
+//SEMÂNTICA
+
+<section>
+    representa uma seção generica de conteudo, como uma lista de artigos
+</section>
+
+<header>
+    representa o cabeçalho da pagina ou parte da pagina
+</header>
+
+<article>
+    representa um conteudo relevante dentro da pagina, como um artigo de blog
+</article>
+
+<aside>
+    representa um conteudo relacionado ao conteudo principal da pagina, como uma biografia de autor, links relacionados,
+    normalmente representado por uma barra lateral
+</aside>
+
+<footer>
+    representa o rodape de uma pagina ou de parte de uma pagina
+</footer>
+
+<h1>-<h6>   representa a importancia de um titulo na sua pagina. Grau de importancia ordenado por ordem crescente; Só
+            pode haver um h1 por pagina.
+
+
+//TAGS E LINKS
+
+<h1>Título da página</h1>
+<h2>Título de seção</h2>
+<h3>Título de artigo</h3>
+<p>Conteúdo do artigo</p> representa paragrafo e não suporta apenas texto, podendo conter imagens, códigos, videos e
+outros conteudos
+
+<a>representa uma ancora. Interliga varios conteudos na web </a>
+
+<a>Link</a>
+<a href="linkedin.com/in/lexoliveira">Linkedin</a>
+<a href="mailto:lexleonmg@gmail.com">E-mail</a>
+<a target="_blank">Link</a>
+
+você não deve usar a mesma tag para representar "âncoras" e "links". âncoras são posições específicas em uma página que
+podem ser referenciadas usando o atributo id, enquanto os links normalmente usam o atributo href.Por exemplo:
+
+Âncora:
+<a id="secao1"></a>
+
+Link:
+<a href="#secao1">Ir para a Seção 1</a>
+
+O atributo target="_blank" é usado para abrir um link em uma nova janela ou aba do navegador.
+
+<img>
+<img src="img/avatar.png">
+<img alt="Foto do Avatar">
+
+A tag <img> não é auto-fechada, então você não precisa de uma barra final (como em <img />).
+
+// Listas
+
+<ul> representa lista desordenada (unordered list)
+Item 01
+Item 02
+
+<ol> representa lista ordenada (ordered list)
+1. Item 01
+2. Item 03
+
+<li> Item da lista (list item)
+
+
+//////////////////////////////// CSS ////////////////////////////////
+
+                    Box model
++-------------------------------------------------------+
+|                   Margin (Margem)                     |
+|                                                       |
+|  +-----------------------------------------------+    |
+|  |               Border (Borda)                  |    |
+|  |                                               |    |
+|  |  +-------------------------------------+      |    |
+|  |  |          Padding (Preenchimento)    |      |    |
+|  |  |                                     |      |    |
+|  |  |    +---------------------------+    |      |    |
+|  |  |    |        Content            |    |      |    |
+|  |  |    |                           |    |      |    |
+|  |  |    +---------------------------+    |      |    |
+|  |  +-------------------------------------+      |    |
+|  +-----------------------------------------------+    |
+|                                                       |
++-------------------------------------------------------+
+
+Margin (Margem): Espaço em branco externo ao elemento, separando-o de outros elementos.
+Border (Borda): Linha que envolve o elemento, separando a área de conteúdo da margem.
+Padding (Preenchimento): Espaço interno entre a borda e o conteúdo do elemento.
+Content (Conteúdo): O próprio conteúdo do elemento, como texto, imagem ou outros elementos filhos.
+
+Cada uma dessas áreas (margem, borda, preenchimento e conteúdo) pode ser ajustada usando propriedades CSS correspondentes,
+como margin, border, padding e width/height.
+
+.post{
+    padding: 10px 5px; // primeiro valor refere-se ao eixo y, ou seja superior e inferior. O segundo ao esquerdo e direito.
+}
+
+.post{
+    padding: 15px 10px 5px 0; // primeiro valor refere-se ao topo, O segundo ao direito, o terceiro ao inferior e o quarto
+                              // a esquerda
+}
+
+//Padding
+.post{
+    padding-top: 15px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 0;
+}
+
+//Background
+.post{
+   background-color: green;
+   background-image: url("bg.png");
+   background-position: top;
+}
+Na propriedade background-image, é necessário definir a largura e altura do elemento para que a imagem seja exibida
+corretamente. Isso ocorre porque a imagem de fundo não ocupa espaço no elemento por padrão.
+
+//Estilo
+.post{
+   border: 3px solid blue;  //sólida
+   border-top: 2px dotted green; //pontilhada
+   border-right: 4px dashed pink; //tracejada
+}
+
+.post{
+    border: 3px solid blue;
+}
+// ou
+.post{
+    border-width: 3px;
+    border-color: blue;
+    border-style: solid;
+}
+//ou ainda
+.post{
+    border-top-width: 3px;
+    border-top-color: blue;
+    border-top-style: solid;
+}
+
+border-radius permite arredondar os cantos de um elemento:
+
+border-radius: 10px;
+border-radius: 50%;
+border-radius: 10% 20%;
+border-radius: 10% 20% 15% 22%;
+
+.post_title{
+    font-family: Verdana, Arial;
+    font-size: 15px;
+    font-style: normal; //italic
+    font-weight: normal; //bold
+}
+
+//Text-transform
+text-transform altera o texto entre maiuscula ou minuscula
+
+#title{
+    text-transform: uppercase;
+}
+
+.subtitle{
+    text-transform: lowercase;
+}
+
+.post_title{
+    text-transform: capitalize; //primeira letra de cada palavra em maiuscula
+}
+
+//Text-decoration
+text-decoration usado para dar destaque colocando linhas
+
+#title{
+    text-decoration: underline; //coloca linha abaixo da palavra
+}
+
+.subtitle{
+    text-decoration: overline; //coloca linha acima da palavra
+}
+
+.post_title{
+    text-decoration: line-through; //coloca linha ao centro, cortando a palavra
+}
+
+
+//List-style-type
+
+ul{
+    list-style-type: square; //simbolo quadrado
+}
+
+ol{
+    list-style-type: upper-roman; //algarismo romano maiusculo
+}
+
+ul{
+    list-style-type: "\1F44D"; // simbolo (emoji joinha)
+}
+
+ul{
+    list-style-image: url("rocket.png"); // imagem
+}
+
+É importante notar que a exibição desses símbolos pode depender do suporte do navegador e da codificação correta.
+
+
+//Dimensão e alinhamento
+
+Width- ajusta altura
+Height- ajusta largura
+
+Max-Width- ajusta altura maxima
+Max-Height- ajusta largura maxima
+
+Margin- ajusta o espaçamento entre elementos. o valor auto serve para alinhar o elemento automaticamente.
+
+Text-align- serve para alinha textos. pode ser a esquerda, direita, centro e justificado
