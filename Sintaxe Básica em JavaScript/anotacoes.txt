@@ -1,0 +1,256 @@
+Declarações de Variaveis
+
+* var- escopo global e local, pode ter seu valor alterado, se não tiver um valor local, será tratado como null;
+* let- escopo local de bloco, pode ter seu valor alterado, se não tiver um valor local, será tratado como null;
+* const- escopo local de bloco, somente leitura, valor inicial obrigatorio e não pode ser alterado;
+
+Regras de uso de Variaveis
+
+*Iniciar com letras, underscore ou cifrão;
+* Não iniciar com numeros;
+* Não usar espaços;
+* Usar camelCase ou underscore;
+* Não usar palavras reservadas;
+*Declarar variaveis no topo do bloco de codigo;
+
+divisao real
+var divisaoReal = 6/2; //(3)
+
+divisao inteira ou resto
+var divisaoInteira = 5%2; //(1)
+
+potenciação
+var potenciacao = 2 **10; //(1024)
+
+Array = tipo de lista, ou matriz de variaveis, onde cada variavel possui um indice. Os Valores podem ser de vários tipos,
+inclusive outros arrays. Exemplo:
+let array = ['string', 1, true, false,['array1'],['array2']];
+
+Manipulando arrays
+
+*forEach() - itera um array;
+*push() - add item no final do array;
+*pop() - remove item no final do array;
+*shift() - remove item no início do array;
+*unshift() - add item no início do array;
+*indexOf() - retorna índice de um valor;
+*splice() - remove ou substitui um item pelo índice;
+*slice() - retorna uma parte de um array existente;
+
+
+Objetos
+Dados que possuem propriedades e valores que definem suas caracteristicas. Deve ser declarado entre chaves"{}". ex:
+var xicara{
+    cor:'azul',
+    tamanho: 'p',
+    funcao: tomarCafe()
+}
+Manipulando Objetos
+As propriedades de objetos podem ser atribuidas a variaveis, facilitando a manipulação do objeto. Chamamos isso de
+desestruturação. Ex:
+var xicara{
+    var cor = xicara.cor;
+    var tamanho = xicara.tamanho;
+    var funcao = tomarCafe();
+}
+
+Na desestruturação de objetos, não é criada uma cópia do valor do atributo na variável, mas sim uma vinculação. Isso
+significa que a variável e a propriedade do objeto apontam para a mesma referência na memória. Portanto, ao alterar a
+variável, o valor da propriedade também será alterado, e vice-versa.
+Vamos considerar o exemplo anterior de desestruturação de um objeto "xicara":
+var xicara = {
+    cor: 'azul',
+    tamanho: 'médio',
+    tomarCafe: function() {
+        console.log('Tomando café...');
+    }
+};
+
+var cor = xicara.cor; // Vinculação da variável "cor" com a propriedade "cor" do objeto
+Nesse exemplo, a variável "cor" está vinculada à propriedade "cor" do objeto "xicara". Se você alterar o valor da
+variável "cor", isso também afetará a propriedade "cor" do objeto e vice-versa:
+
+cor = 'vermelho'; // Altera o valor da variável "cor"
+console.log(xicara.cor); // Isso imprimirá 'vermelho', porque a propriedade do objeto também foi afetada
+
+Da mesma forma, se você alterar a propriedade diretamente no objeto, isso também afetará a variável:
+
+xicara.cor = 'verde'; // Altera a propriedade "cor" do objeto
+console.log(cor); // Isso imprimirá 'verde', porque a variável também foi afetada
+
+
+Estruturas condicionais
+if ternario
+Podemos fazer uma verificação em uma unica linha usando o if ternário:
+Ex: [condição]?[instrução1]:[instrução2];
+
+Estruturas de repetição
+For in - Funciona como uma repetição a partir de uma propriedade:
+for([indice] in [Objeto ou array]){
+    declaracao}
+
+Ex: var array =['valor1', 'valor2', 'valor3', 'valor4']
+for (i in array{
+    console.log(i);
+}
+O resultado será a impressão dos índices do array: 0, 1, 2, 3.
+
+For of - Funciona como uma repetição a partir de um valor:
+for([indice] of [ array]){
+    declaracao}
+
+Ex: var array= ['valor1', 'valor2', 'valor3', 'valor4']
+for (i of array){
+    console.log(i);
+}
+O resultado será a impressão dos valores do array: 'valor1', 'valor2', 'valor3', 'valor4'.
+
+No caso de objetos, o loop for...of não é diretamente aplicável, porque os objetos não são iteráveis no mesmo sentido
+que os arrays ou strings. Porém, você pode usar a combinação de Object.values() para obter os valores das propriedades
+de um objeto e, em seguida, usar o for...of para percorrê-los:
+
+Ex: var object = {
+        prop1: 'valor1',
+        prop2: 'valor2',
+        prop3: 'valor3',
+        prop4: 'valor4'
+    };
+
+    for (var value of Object.values(object)) {
+        console.log(value);
+    }
+Isso imprimirá os valores das propriedades do objeto: 'valor1', 'valor2', 'valor3', 'valor4'.
+
+
+-----------------FUNÇOES----------------
+Sãio blocos de comandos e instruções para a execução de determinadas tarefas:
+Ex: function nomeDaFuncao() {
+    ${instrução};
+}
+
+nomeDaFuncao();
+
+FUNÇÔES DECLARATIVAS: São funções que possuem o uso mais comum, devem ser declarada usando a palavra reservada function
+seguida do nome da Funcao, parenteses e chaves.
+
+Ex: function nomeDaFuncao() {
+        ${instrução};
+    }
+    //o nome da função é obrigatório;
+
+EXPRESSÕES DE FUNÇÕES: São funções atribuidas à expressoes. A nomeação das funções por parte da expressão é opcional.
+
+Ex 1: var funcao = function nomeDaFuncao() {
+    ${instrucao};
+}
+
+Ex 2: var funcao = function(){
+    ${instrucao};
+}
+
+ARROW FUNCTION: são funções de expressão de sintaxe curta. Arrow functions sempre serão anonimas, e portanto não podem
+ser nomeadas. Devem ser declaradas com parenteses seguido de "=>" e depois as chaves.
+
+Ex: var funcao = () =>{
+    ${instrucao}
+}
+
+Criando uma calculadora
+Para este exercicio vamos utilizar alguns metodos nativos do Javascript:
+Number(): para converter valores em numeros.
+Prompt():para registrar entradas de usuario.
+Alert(): para mostrar mensagem ao usuario.
+Templates Strings: para usar strings com expressoes.
+
+
+function calculadora() {
+    const operacao = Number(prompt("Escolha uma operação:\n 1-Soma(+)\n 2- Subtração(-)\n 3- Multiplicação(*)\n 4- Divisão
+    real(/)\n 5-Divisão inteira(%)\n 6-Potenciação(**)"));
+
+    if (!operacao || operacao>=7){
+        alert("Operação inválida");
+        calculadora();
+    }else{
+        let n1 = Number(prompt("Insira o primeiro valor:"));
+        let n2 = Number(prompt("Insira o segundo valor:"));
+        let resultado;
+
+        if (!n1 || !n2){
+            alert("Erro - Parametros inválidos");
+            calculadora();
+        }else{
+            function soma() {
+                resultado = n1 + n2;
+                alert(`${n1} + ${n2} = ${resultado}`);
+                novaOperacao();
+            }
+
+            function subtracao() {
+                resultado = n1 - n2;
+                alert(`${n1} - ${n2} = ${resultado}`);
+                novaOperacao();
+            }
+
+            function multiplicacao() {
+                resultado = n1 * n2;
+                alert(`${n1} * ${n2} = ${resultado}`);
+                novaOperacao();
+            }
+
+            function divisaoReal() {
+                resultado = n1 / n2;
+                alert(`${n1} / ${n2} = ${resultado}`);
+                novaOperacao();
+            }
+
+            function divisaoInteira() {
+                resultado = n1 % n2;
+                alert(` O resto da divisão entre ${n1} e ${n2} é igual a ${resultado}`);
+                novaOperacao();
+            }
+
+            function potenciacao() {
+                resultado = n1 % n2;
+                alert(` ${n1} elevado á ${n2} é igual a ${resultado}`);
+                novaOperacao();
+            }
+
+            function novaOperacao() {
+                let opcao = prompt("Deseja fazer outra operacao?\n 1- Sim\n 2-Não")
+                if (opcao == 1) {
+                    calculadora();
+                } else if (opcao == 2) {
+                    alert('Até mais');
+                }else{
+                    alert('Digite uma opção válida');
+                    novaOperacao();
+                }
+            }
+        }
+
+        switch (operacao) {
+            case 1:
+                soma();
+                break;
+            case 2:
+                subtracao();
+                break;
+            case 3:
+                multiplicacao();
+                break;
+            case 4:
+                divisaoReal();
+                break;
+            case 5:
+                divisaoInteira();
+                break;
+            case 6:
+                potenciacao();
+                break;
+
+        }
+    }
+
+}
+
+calculadora();
