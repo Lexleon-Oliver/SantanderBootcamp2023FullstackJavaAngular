@@ -1,0 +1,14 @@
+<span>: 
+    Finalidade:
+        O <span> é um elemento inline usado para aplicar estilos, scripts ou comportamentos a partes específicas do texto dentro de 
+        um elemento pai. Ele é geralmente usado para formatação de texto, como alterar a cor, o tamanho da fonte ou aplicar classes 
+        e IDs para estilização e manipulação via CSS ou JavaScript.
+
+    Comportamento de Layout:
+        <span>: O <span> é um elemento inline, o que significa que ele não quebra automaticamente em uma nova linha e só ocupa o 
+        espaço necessário para o conteúdo dentro dele. Ele é usado para aplicar estilos a partes específicas de um texto dentro 
+        de um elemento de bloco.
+
+    Hierarquia:
+        <span>: Geralmente, o <span> é usado dentro de outros elementos, como parágrafos, divisões (<div>), âncoras (<a>) e muitos 
+        outros, para afetar partes específicas do texto contido nesses elementos.
