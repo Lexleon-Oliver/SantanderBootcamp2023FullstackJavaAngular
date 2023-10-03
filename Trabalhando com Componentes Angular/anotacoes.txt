@@ -1,0 +1,29 @@
+como passar o valor de um componente pai para o filho.
+// DATABINDING
+
+<app_my_button label="{{buttonLabel}}></app_my_button>
+            ou
+<app_my_button [label]="buttonSecond"></app_my_button>
+
+<app_my_button label="buttonSecond"></app_my_button> //permite passar string
+<app_my_button label="{{buttonSecond}}"></app_my_button> //permite passar variavel
+
+
+<app_my_button [label]="'buttonSecond'"></app_my_button> //permite passar string
+<app_my_button [label]="buttonSecond"></app_my_button> //permite passar variavel
+
+//TIPOS DE BINDING
+
+Do Typescript para o HTML:
+
+* Interpolação= {{valor}}
+* Property Binding = [propriedade] = "valor"
+
+
+Do Typescript para o HTML:
+
+* Event Binding = (event) = "Handler"
+
+Ambos os sentidos:
+
+* Two Way Data Binding = [(ngModel)]="propriedade"
