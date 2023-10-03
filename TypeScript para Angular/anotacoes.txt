@@ -1,0 +1,177 @@
+VARIAVEIS
+
+//Tipos primitivos
+*boolean-> let isLigado: boolean = false;
+*number-> let idade: number = 30;
+*string-> let nome: string = "Alex";
+
+//Tipos especiais
+*null-> let nulo: null = null;
+*undefined-> let indefinido: undefined = undefined;
+
+//Tipos abrangentes
+*any-> let qualquer: any = any;
+*void-> let vazio: void = void;
+
+OBJETOS
+
+//não recomendado
+let produto: object={
+    nome: "Alex",
+    cidade: "Carandai",
+    idade: 30,
+}
+
+//recomendado
+
+type ProdutoLoja = {
+    nome: string;
+    preco:number;
+    unidade: number;
+}
+
+let meuProduto: ProdutoLoja = {
+    nome: "tenis",
+    preco: 30.99,
+    unidade: 5,
+}
+
+ARRAYS
+
+let dados: string[]= ["Alex", "Adriano", "Ana"];
+let dados2: Array<string> = ["Alex", "Adriano", "Ana"];
+
+let infos: (string | number)[] =["Alex", 30, "Adriano", "Ana"];
+
+TUPLAS
+
+let boleto: [string, number, number] =["Agua", 199.90, 323445845];
+
+MÉTODOS ARRAYS
+//São os mesmos do javascript
+
+dados.pop();
+
+DATAS
+
+let aniversario: Date = new Date("2022-12-01 05:00");
+
+FUNÇOES
+
+function addNumber(x: number, y:number): number{
+return x+y;
+}
+
+let soma: number = addNumber(4,7);
+
+INTERFACES (TYPE X INTERFACE)
+
+    type robot{
+        id:number;
+        name:string;
+    }
+
+    const bot1: robot={
+        id:1,
+        name: "Megaman",
+    }
+
+    interface robot2{
+        id:number | string;
+        name:string;
+    }
+
+     const bot2: robot2={
+         readonly id:"1",
+         name: "Megaman",
+     }
+
+CLASSES
+
+    class Character{
+        private name?:string;
+        strength:number;
+        skill:number;
+
+        constructor(name: string, strength: number, skill: number){
+            this.name = name;
+            this.strength = strength;
+            this.skill = skill;
+        }
+
+        attack():void{
+        console.log("Attack with ${this.strength} points");
+        }
+    }
+
+    //Character: superclass
+    //Magician: subclass
+
+    class Magician extends Character{
+        magicPoints:number;
+        constructor(name: string, strength: number, skill: number, magicPoints: number){
+            super(name, strength, skill);
+            this.magicPoints = magicPoints;
+        }
+    }
+
+    const p1 = new Character("Ryu", 10,98);
+    const p2 = new Character("Mago", 09, 30, 100);
+    p1.attack();
+
+GENERICS
+
+    function concatArray<T>(... itens: T[]): T[]{
+        return new Array().concat(...itens);
+    }
+
+    const numArray = concatArray<number[]>([1,5], [3]);
+    const stgArray = concatArray<string[]>(["Alex", "Goku"],["vegeta"]);
+
+    numArray.push("saitama"); ->erro
+
+Criando Decorators
+
+function apiVersion(version: string): string{
+    return (target: any )=> {
+    Object.assign(target.prototype, {__version: version});
+    };
+}
+
+@apiVersion("1.10")
+class Api{}
+
+const api= new Api();
+console.log(api.__version);
+
+//attribute decorator
+
+function minLength(length: number){
+    return(target: any, key: string )=> {
+    let _value = target[key];
+    const getter = ()=> _value;
+    const setter = (value: string)=>{
+        if (value.length< length){
+            throw new Error(`Tamanho menor do que ${length}`);
+        }else{
+            _value = value;
+        }
+    };
+    Object.defineProperty(target, key, {
+        get: getter,
+        set: setter,
+    });
+  };
+
+}
+class Api{
+    @minLength(3)
+    name: string
+
+    constructor(name: string){
+        this.name = name;
+    }
+}
+
+const api = new Api("produtos");
+console.log(api.name);
