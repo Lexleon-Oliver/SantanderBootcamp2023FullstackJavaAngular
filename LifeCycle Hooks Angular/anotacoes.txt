@@ -1,0 +1,129 @@
+ngOnChanges:
+    Este gancho é acionado sempre que as propriedades de entrada de um componente são alteradas.
+    Exemplo:
+
+    import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+
+    @Component({
+      selector: 'app-meu-componente',
+      template: 'Valor atual: {{ meuInput }}'
+    })
+    export class MeuComponente implements OnChanges {
+      @Input() meuInput: string;
+
+      ngOnChanges(changes: SimpleChanges) {
+        console.log('Propriedade de entrada alterada:', changes.meuInput.currentValue);
+      }
+    }
+
+ngOnInit:
+
+    Esse gancho é acionado uma vez, quando o componente é inicializado.
+    É usado para realizar inicializações, como buscar dados de serviços.
+    Exemplo:
+
+    import { Component, OnInit } from '@angular/core';
+
+    @Component({
+      selector: 'app-meu-componente',
+      template: 'Inicializado!'
+    })
+    export class MeuComponente implements OnInit {
+      ngOnInit() {
+        console.log('Componente inicializado');
+      }
+    }
+
+ngDoCheck:
+
+    Este gancho é acionado sempre que a detecção de mudanças é executada.
+    Permite a verificação personalizada para mudanças não capturadas pelo Angular.
+    Exemplo:
+
+    import { Component, DoCheck } from '@angular/core';
+
+    @Component({
+      selector: 'app-meu-componente',
+      template: 'Verificação de mudanças!'
+    })
+    export class MeuComponente implements DoCheck {
+      ngDoCheck() {
+        console.log('Verificando mudanças não capturadas pelo Angular');
+      }
+    }
+
+ngAfterContentInit:
+
+    É chamado após a inserção do conteúdo projetado (projetado com <ng-content>).
+    Útil quando você deseja realizar operações após o conteúdo ser inserido.
+    Exemplo:
+
+    import { Component, AfterContentInit } from '@angular/core';
+
+    @Component({
+      selector: 'app-meu-componente',
+      template: '<ng-content></ng-content>'
+    })
+    export class MeuComponente implements AfterContentInit {
+      ngAfterContentInit() {
+        console.log('Conteúdo projetado foi inserido');
+      }
+    }
+
+ngAfterContentChecked:
+
+    É chamado após a verificação de mudanças no conteúdo projetado.
+    Útil para ações após a verificação do conteúdo projetado.
+    Exemplo similar ao ngAfterContentInit.
+
+ngAfterViewInit:
+
+    É acionado após a inicialização das vistas filhas e das próprias vistas.
+    Útil quando você precisa interagir com elementos da DOM após a renderização.
+    Exemplo:
+
+    import { Component, AfterViewInit, ElementRef } from '@angular/core';
+
+    @Component({
+      selector: 'app-meu-componente',
+      template: '<div #meuElemento></div>'
+    })
+    export class MeuComponente implements AfterViewInit {
+      @ViewChild('meuElemento') meuElemento: ElementRef;
+
+      ngAfterViewInit() {
+        this.meuElemento.nativeElement.innerHTML = 'Conteúdo modificado após a renderização';
+      }
+    }
+
+ngAfterViewChecked:
+
+    É acionado após a verificação de mudanças nas vistas filhas e nas próprias vistas.
+    Útil para ações após a verificação da DOM.
+    Exemplo similar ao ngAfterViewInit.
+
+ngOnDestroy:
+
+    É chamado quando o componente está prestes a ser destruído.
+    É usado para limpar recursos, como assinaturas de observáveis.
+    Exemplo:
+
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+@Component({
+  selector: 'app-meu-componente',
+  template: 'Componente destruído!'
+})
+export class MeuComponente implements OnDestroy {
+  private subscription: Subscription;
+
+  constructor() {
+    this.subscription = new Subscription();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+    console.log('Componente destruído e recursos liberados');
+  }
+}
