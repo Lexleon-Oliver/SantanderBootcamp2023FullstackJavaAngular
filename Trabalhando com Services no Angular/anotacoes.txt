@@ -1,0 +1,3 @@
+Os 3 pilares de um service
+
+O TS do component deve apenas se concentrar em renderizar o componente na tela. Para as regras de negocios temos os services.
