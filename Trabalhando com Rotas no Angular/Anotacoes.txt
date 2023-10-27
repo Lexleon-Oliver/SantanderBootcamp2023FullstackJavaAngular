@@ -1,0 +1,58 @@
+pathMatch: full ou prefix;
+full -> a url deve ser exatamente igual. geralmente usado na url principal.
+prefix -> a url deve deve possuir aquele prefixo, mesmo contendo outras coisas
+
+Quando não usado o pathMatch assume por default o valor prefix.
+
+-----------------ROTAS CORINGAS----------------
+São rotas que permite tratar rotas não mapeaveis.
+'**' -> rota que significa qualquer coisa.
+redirectTo -> redireciona para alguma outra rota que eu queira
+
+----------------ROUTERLINK----------------
+não usa-se href: http:// para não restartar o servidor. SinglePageApplication executa uma vez e apenas atualiza os componentes,
+sem ficar restartando a pagina tornando o app mais rápido.
+permite a navegação entre paginas. Ex:
+<div>
+    <ul>
+        <li><a [routerLink]="['/']">HOME</a></li>
+        <li><a [routerLink]="['/portfolio']">PORTFOLIO</a></li>
+    </ul>
+</div>
+
+ActiveRouter adiciona uma classe css conforme a rota ativa:
+<div>
+    <ul>
+        <li><a [routerLink]="['/']" [routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">HOME</a></li>
+        <li><a [routerLink]="['/portfolio']"[routerLinkActive]="['activated']" [routerLinkActiveOptions]="{exact:true}">PORTFOLIO</a></li>
+    </ul>
+</div>
+
+Recuperando parametros das rotas
+//Arquivo de Rotas
+const routes: Routes = [
+{path: 'portfolio/:id', component: CardComponent},
+
+//CardComponent
+constructor(private activeRoute: ActivatedRoute){
+this.activeRoute.params.subscribe(
+    res=>console.log(res) //id
+)
+}
+
+Recuperando QueryParams das rotas
+//CardComponent
+
+constructor(private activeRoute: ActivatedRoute){
+//http://localhost:4200/portfolio/1?{name=felipe&token=123}
+this.activeRoute.queryParams.subscribe(
+    res=>console.log(res) //{name=felipe&token=123}
+)
+}
+
+Recuperando parametros das rotas filhas
+this.activeRoute.firstChild?.params.subscribe(
+    res=>console.log(res) //id
+)
+
+
