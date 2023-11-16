@@ -1,0 +1,108 @@
+Java Beans
+
+metodos-> sempre verbo no infinitivo. Deve ter apenas uma função
+
+Variavel-> sempre no singular, exceto quando se referir a array ou coleção. Defina um idioma único para variáveis. Se
+for declarar variaveis em ingles, defina todas em ingles.
+
+Não é recomendado abreviar variaveis. Exemplo= double salMedio = 1500.23
+
+Constantes -> devem ser representadas em letras maiusculas e ter o final para impedir a mudança de valor.
+
+ além das convenções de nomenclatura para métodos e variáveis, é importante mencionar a necessidade de seguir padrões
+ para criar classes com propriedades privadas, métodos getters e setters públicos e a implementação da interface
+ Serializable se a classe precisar ser serializável.
+
+==Operador ternario ==
+
+Como um if normal, porem em uma unica linha. Ex:
+If normal:
+    int a, b;
+    a= 1; b= 2;
+    String resultado = "";
+    if(a == b){
+    resultado = "verdadeiro";
+    }else{
+    resultado = "falso";
+    }
+
+    System.out.Println(resultado);
+
+Ternario:
+ int a, b;
+    a= 1; b= 2;
+    String resultado = a==b ? "verdadeiro": "falso";
+
+    System.out.Println(resultado);
+
+
+Documentação:
+
+/**
+*<h1> Calcularadora</h1>
+* A calculadora realiza operações matematicas entre numeros inteiros
+* <p>
+*<b>Note:</b> Leia atentamente a documentação desta classe
+*para desfrutar dos recursos oferecidos pelo author
+*
+*@author Alex Oliveira
+*version 1.0
+*since 16/11/2023
+*/
+
+public class Calculadora{
+/**
+*Este método é utilizado para somar dois numeros inteiros
+* @param numeroUm este é o primeiro parâmetro do metodo
+* @param numeroDois este é o segundo parâmetro do metodo
+* @return int o resultado deste metodo é a soma dos dois numeros.
+*/
+public int somar (int numeroUm, int numeroDois){
+return numeroUm + numeroDois;
+}
+}
+
+Comentarios:
+
+//comentario em uma linha
+
+/*
+comentarios mais detalhados
+feito em varias
+linhas
+*/
+
+/**
+*Estas duas estrelinhas acima
+*é para identificar que você
+*pretende elaborar  um comentário
+*a nível de documentação.
+*Que incrivel!!!
+*/
+
+Criando documentação no formato html para disponibilizar via web
+
+//no terminal execute o comando abaixo
+
+javadoc -encoding UTF-8 -docencoding ISO-8859-1 -d ../docs src/*.java
+
+
+Terminal e Argumentos
+
+quando você executa um programa Java a partir do terminal, pode fornecer argumentos para o programa. Por exemplo, se o
+seu programa espera um argumento que represente um arquivo de entrada, você pode passar esse arquivo como argumento na
+linha de comando:
+
+java MeuPrograma argumento1 argumento2
+
+E no código Java, você pode acessar esses argumentos usando o parâmetro String[] args no método main:
+
+java
+
+public static void main(String[] args) {
+    // args[0] contém o primeiro argumento, args[1] contém o segundo e assim por diante
+}
+
+Isso é útil para configurar o comportamento do programa sem precisar recompilar o código toda vez que você quiser mudar
+algum parâmetro.
+

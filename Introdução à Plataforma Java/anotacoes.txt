@@ -1,0 +1,11 @@
+Pilares da Programação Orientada a Objetos:
+
+* Classe e Objeto
+* Encapsulamento
+* Abstração
+* Herança
+* Polimorfismo
+
+Multi-Thread
+Thread é um subprocesso leve independente de um programa em execução (ou seja, processo) que compartilha recusos. Multi-
+threading é o nome dado ao processo de varios threads sendo executados simultaneamente.
